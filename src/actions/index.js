@@ -24,18 +24,19 @@ export const GET_NOTES_SUCCESS = 'GET_NOTES_SUCCESS';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const MARK_NOTE_SUCCESS = 'MARK_NOTE_SUCCESS';
 
-export function getNotesSuccess (res) {
+export function getNotesSuccess (notes) {
+  console.log(notes);
   return {
     type: GET_NOTES_SUCCESS,
-    notes: res.obj,
+    notes,
   };
 }
 
-export function addNoteSuccess (res) {
-  return { type: ADD_NOTE_SUCCESS, note: res.obj };
+export function addNoteSuccess (note) {
+  return { type: ADD_NOTE_SUCCESS, note };
 }
 
-export function markNoteSuccess (res) {
-  return { type: MARK_NOTE_SUCCESS, id: res.obj.id, marked: res.obj.marked };
+export function markNoteSuccess (note) {
+  return { type: MARK_NOTE_SUCCESS, id: note.id, marked: note.marked };
 }
 

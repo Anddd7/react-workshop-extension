@@ -2,14 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Header from './components/Header';
 import Inputer from './components/Inputer';
-import { addNote, getNotes, markNote } from './actions';
+import { addNote, getNotes, markNote, addNoteSuccess, getNotesSuccess, markNoteSuccess } from './actions';
 import NoteList from './components/NoteList';
+import API from './api';
+
 
 class App extends React.Component {
-  componentWillMount = () => this.props.dispatch(getNotes());
+  componentWillMount = () =>
+    API.get('/note')
+      .then(res => this.props.dispatch(getNotesSuccess(res.data.obj)))
 
-  handleAddNote = (content) => this.props.dispatch(addNote({ content }))
-  handleMarkNote = (id, marked) => this.props.dispatch(markNote(id, marked))
+  handleAddNote = (content) =>
+    API.post('/note', { content })
+      .then(res => this.props.dispatch(addNoteSuccess(res.data.obj)))
+
+  handleMarkNote = (id, marked) =>
+    API.get(`/note/${id}/mark?marked=${marked}`)
+      .then(res => this.props.dispatch(markNoteSuccess(res.data.obj)))
 
   render () {
     const { notes } = this.props;
