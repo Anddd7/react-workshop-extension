@@ -1,0 +1,21 @@
+function(request){
+  return {
+    headers:{
+      "Content-Type":"application/json",
+      "Access-Control-Allow-Origin":request.headers['Origin'] || 'http://noorigin.com',
+      "Access-Control-Allow-Credentials":true
+    },
+    body:{
+      obj:[{
+        id: 10000010,
+        content: '默认内容......',
+        marked: false,
+      },
+      {
+        id: 10000011,
+        content: '默认内容1......',
+        marked: true,
+      }]
+    }
+  };
+}

@@ -1,0 +1,18 @@
+function(request){
+  const id = Number(request.path.split('/')[2]);
+  const marked = request.query.marked==='true';
+
+  return {
+    headers:{
+      "Content-Type":"application/json",
+      "Access-Control-Allow-Origin":request.headers['Origin'] || 'http://noorigin.com',
+      "Access-Control-Allow-Credentials":true
+    },
+    body:{
+        obj:{
+          id,
+          marked
+        }
+    }
+  };
+}

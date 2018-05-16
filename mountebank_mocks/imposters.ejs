@@ -1,0 +1,47 @@
+{
+  "imposters":[{
+    "port":9999,
+    "protocol":"http",
+    "name":"Mock",
+    "stubs":[{
+      "responses":[{
+        "inject":"<%- stringify(filename,'note/getNoteList.ejs')%>",
+        "_behaviors":{"wait":1000}
+      }],
+      "predicates":[{
+        "and":[{
+          "equals":{"method":"GET"}
+        },{
+          "endsWith":{"path":"/note"}
+        }]
+      }]
+    },
+    {
+      "responses":[{
+        "inject":"<%- stringify(filename,'note/addNote.ejs')%>",
+        "_behaviors":{"wait":100}
+      }],
+      "predicates":[{
+        "and":[{
+          "equals":{"method":"POST"}
+        },{
+          "endsWith":{"path":"/note"}
+        }]
+      }]
+    },
+    {
+      "responses":[{
+        "inject":"<%- stringify(filename,'note/markNote.ejs')%>",
+        "_behaviors":{"wait":100}
+      }],
+      "predicates":[{
+        "and":[{
+          "equals":{"method":"GET"}
+        },
+        { 
+          "matches": { "path": "/note/\\d+/mark" } 
+        }]
+      }]
+    }]
+  }]
+}
