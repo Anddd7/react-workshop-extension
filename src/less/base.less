@@ -1,0 +1,43 @@
+// 变量
+@base-color: #61affe;
+@base-shadow: 0 0 3px rgba(0,0,0,.19);
+
+// 函数
+.padding(@space:20px){
+  padding: @space;
+}
+.margin(@space:20px){
+  margin: @space;
+}
+
+// 使用函数
+.App{
+  .padding;
+  .margin;
+}
+
+// 使用变量
+.note-list{
+  margin: 20px 0;
+  border: 1px solid @base-color;
+  border-radius: 4px;
+  -webkit-box-shadow: @base-shadow;
+  box-shadow: @base-shadow;
+  
+  // 嵌套
+  li{padding: 10px 0;}
+  
+  button{
+    font-size: 15px;
+    border: none;
+  }
+  
+  .marked {
+    button{
+      text-decoration:line-through;
+      color: gray;
+    }
+  }
+  
+  .unmarked{button{color: #61affe;}}
+}
