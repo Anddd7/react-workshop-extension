@@ -26,7 +26,7 @@
     "start-mock-server": "mb restart --configfile mountebank_mocks/imposters.ejs --logfile log/mb.log --allowInjection",
     "test-coverage": "react-scripts test --env=jsdom --coverage",
     "sonar": "sonar-scanner -Dsonar.projectKey=react-workshop-extension -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=anddd7-github -Dsonar.login=e951d4c804d9500e2f0fe91f98cc2ee724c3cbd4 -Dsonar.inclusions=src/** -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
-    "coveralls": "coveralls < ./coverage/lcov.info --COVERALLS_SERVICE_NAME=travis-pro --COVERALLS_REPO_TOKEN=jt4CF3EQC5D7V7IQET5eiHBrKofpMqIKK"
+    "coveralls": "node ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info --COVERALLS_SERVICE_NAME=travis-pro --COVERALLS_REPO_TOKEN=jt4CF3EQC5D7V7IQET5eiHBrKofpMqIKK"
   },
   "proxy": "http://localhost:9999",
   "devDependencies": {
