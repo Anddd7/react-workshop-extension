@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+- '8'
+script:
+- yarn build-less
+- yarn test-coverage
+after_success:
+- yarn sonar
+- yarn coveralls
