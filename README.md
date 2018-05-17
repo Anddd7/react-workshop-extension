@@ -19,7 +19,6 @@
 * `yarn add sonar-scanner` - SonarQube为开源仓库提供免费服务
 * `yarn add coveralls` - 和travis集成
 
-cross-env
-CI:travisCI
-COVERALLs:coveralls
-SonaCloud
+[![Build Status](https://travis-ci.org/Anddd7/react-workshop-extension.svg?branch=workshop-3)](https://github.com/Anddd7/react-workshop-extension)
+
+[![Sonar](https://sonarcloud.io/api/project_badges/measure?project=react-workshop-extension&metric=ncloc)](https://github.com/Anddd7/react-workshop-extension)
