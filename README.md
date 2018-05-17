@@ -19,13 +19,7 @@
 * `yarn add sonar-scanner` - SonarQube为开源仓库提供免费服务
 * `yarn add coveralls` - 和travis集成
 
-
-mocha
-nyc
-
-
 cross-env
-
 CI:travisCI
 COVERALLs:coveralls
 SonaCloud
