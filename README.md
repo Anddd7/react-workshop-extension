@@ -13,12 +13,16 @@
   * `yarn add axios` - http request (需要设置 proxy 转发)
   * `yarn add mountebank` - mock后端服务
 
+### 代码质量
+* `eslint` - 默认支持, 使用`eslint --init`开启详细配置
+* `--coverage` - 生成测试覆盖率报告
+* `yarn add sonar-scanner` - SonarQube为开源仓库提供免费服务
+* `yarn add coveralls` - 和travis集成
+
 
 mocha
 nyc
-eslint
-lint-fix
-sonar
+
 
 cross-env
 

@@ -1,0 +1,7 @@
+organization=anddd7-github
+projectKey=react-workshop-extension
+serverUrl=https://sonarcloud.io
+serverVersion=7.2.0.12086
+dashboardUrl=https://sonarcloud.io/dashboard/index/react-workshop-extension
+ceTaskId=AWNr7ByTCiV67y-xNj8N
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWNr7ByTCiV67y-xNj8N

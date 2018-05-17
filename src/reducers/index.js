@@ -15,17 +15,6 @@ const staticNotes = [{
 
 const notes = (oldState = [], action) => {
   switch (action.type) {
-    // case GET_NOTES:
-    //   return staticNotes;
-    // case ADD_NOTE:
-    //   return [action.note].concat(oldState);
-    // case MARK_NOTE:
-    //   return oldState.map(note => {
-    //     if (note.id === action.id) {
-    //       note.marked = action.marked
-    //     }
-    //     return note;
-    //   })
     case GET_NOTES_SUCCESS:
       return action.notes;
     case ADD_NOTE_SUCCESS:

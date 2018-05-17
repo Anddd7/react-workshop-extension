@@ -14,7 +14,8 @@
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
-    "sinon": "^5.0.7"
+    "sinon": "^5.0.7",
+    "sonar-scanner": "^3.1.0"
   },
   "scripts": {
     "start": "yarn build-less && react-scripts start",
@@ -22,7 +23,16 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-less": "lessc src/less/base.less src/css/index.css",
-    "start-mock-server": "mb restart --configfile mountebank_mocks/imposters.ejs --logfile log/mb.log --allowInjection"
+    "start-mock-server": "mb restart --configfile mountebank_mocks/imposters.ejs --logfile log/mb.log --allowInjection",
+    "test-coverage": "react-scripts test --env=jsdom --coverage",
+    "sonar": "sonar-scanner -Dsonar.projectKey=react-workshop-extension -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=anddd7-github -Dsonar.login=e951d4c804d9500e2f0fe91f98cc2ee724c3cbd4 -Dsonar.inclusions=src/** -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
+    "coveralls": "coveralls < ./coverage/lcov.info --COVERALLS_SERVICE_NAME=travis-pro --COVERALLS_REPO_TOKEN=jt4CF3EQC5D7V7IQET5eiHBrKofpMqIKK"
   },
-  "proxy": "http://localhost:9999"
+  "proxy": "http://localhost:9999",
+  "devDependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2"
+  }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Header from './components/Header';
 import Inputer from './components/Inputer';
-import { addNote, getNotes, markNote, addNoteSuccess, getNotesSuccess, markNoteSuccess } from './actions';
+import { addNoteSuccess, getNotesSuccess, markNoteSuccess } from './actions';
 import NoteList from './components/NoteList';
 import API from './api';
 
