@@ -24,3 +24,5 @@
 [![Build Status](https://travis-ci.org/Anddd7/react-workshop-extension.svg?branch=workshop-3)](https://github.com/Anddd7/react-workshop-extension)
 
 [![Sonar](https://sonarcloud.io/api/project_badges/measure?project=react-workshop-extension&metric=ncloc)](https://github.com/Anddd7/react-workshop-extension)
+
+[![Coverage Status](https://coveralls.io/repos/github/Anddd7/react-workshop-extension/badge.svg?branch=workshop-3)](https://github.com/Anddd7/react-workshop-extension)
