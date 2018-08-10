@@ -11,6 +11,7 @@
     "less": "^3.0.4",
     "mountebank": "^1.14.0",
     "react": "^16.3.2",
+    "react-chartjs": "^1.2.0",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
@@ -29,7 +30,7 @@
     "sonar": "sonar-scanner -Dsonar.projectKey=react-workshop-extension -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=anddd7-github -Dsonar.login=e951d4c804d9500e2f0fe91f98cc2ee724c3cbd4 -Dsonar.inclusions=src/** -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
     "coveralls": "node ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info --COVERALLS_SERVICE_NAME=travis-pro --COVERALLS_REPO_TOKEN=jt4CF3EQC5D7V7IQET5eiHBrKofpMqIKK"
   },
-  "proxy": "http://localhost:9999",
+  "proxy": "http://localhost:10000",
   "devDependencies": {
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",

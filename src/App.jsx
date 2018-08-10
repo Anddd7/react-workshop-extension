@@ -1,42 +1,57 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Header from './components/Header';
-import Inputer from './components/Inputer';
-import { addNoteSuccess, getNotesSuccess, markNoteSuccess } from './actions';
-import NoteList from './components/NoteList';
+import { getCalculatedPublishedRecord, getStart, getEnd } from './actions';
 import API from './api';
 
 
 class App extends React.Component {
-  componentWillMount = () =>
-    API.get('/note')
-      .then(res => this.props.dispatch(getNotesSuccess(res.data.obj)))
 
-  handleAddNote = (content) =>
-    API.post('/note', { content })
-      .then(res => this.props.dispatch(addNoteSuccess(res.data.obj)))
+  constructor(props) {
+    super(props);
+    this.refresh();
+  }
 
-  handleMarkNote = (id, marked) =>
-    API.get(`/note/${id}/mark?marked=${marked}`)
-      .then(res => this.props.dispatch(markNoteSuccess(res.data.obj)))
+  refresh = () => {
+    this.props.dispatch(getStart());
+    API.BILIBILI.get('/result/published')
+      .then(res => {
+        this.props.dispatch(getCalculatedPublishedRecord(res))
+        this.props.dispatch(getEnd())
+      });
+  }
 
   render () {
-    const { notes } = this.props;
-    console.log(notes);
-    const unmarkedCount = notes.filter(note => !note.marked).length;
-
+    const { top10PublishedRecord, loading } = this.props;
+    console.log(top10PublishedRecord);
     return (
       <div className="App">
-        <Header unmarkedCount={unmarkedCount} />
-        <Inputer handleOk={this.handleAddNote} />
-        <NoteList notes={notes} handleMarkNote={this.handleMarkNote} />
+        {loading && <span >载入中...</span>}
+        {top10PublishedRecord.sortByTotalPublished &&
+          (<div>
+            <h2>今日投稿榜单</h2>
+            <span>{JSON.stringfy(top10PublishedRecord.sortByTotalPublished)}</span>
+          </div>)
+        }
+        {top10PublishedRecord.sortByLastHalfHourPublished &&
+          (<div>
+            <h2>半小时投稿榜单</h2>
+            <span>{JSON.stringfy(top10PublishedRecord.sortByLastHalfHourPublished)}</span>
+          </div>)
+        }
+        {top10PublishedRecord.sortByLastHourPublished &&
+          (<div>
+            <h2>一小时投稿榜单</h2>
+            <span>{JSON.stringfy(top10PublishedRecord.sortByLastHourPublished)}</span>
+          </div>)
+        }
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  notes: state.notes,
+  top10PublishedRecord: state.top10PublishedRecord,
+  loading: state.loading,
 });
 
 const connectedApp = connect(mapStateToProps)(App);

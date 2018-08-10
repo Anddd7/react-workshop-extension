@@ -9,13 +9,15 @@ const Axios = axios.create({
   },
 });
 
+function Module (name) {
+  this.name = name;
+  this.get = (url) => Axios.get(`${this.name}/api/v1${url}`);
+  this.post = (url, data) => Axios.post(`${this.name}/api/v1${url}`, data);
+}
+
 const API = {
-  get (url, data) {
-    return Axios.get(`${url}`);
-  },
-  post (url, data) {
-    return Axios.post(`${url}`, data);
-  }
+    BILIBILI: new Module('bilibili')
 };
+
 
 export default API;
